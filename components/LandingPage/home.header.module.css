@@ -1,0 +1,59 @@
+.button {
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  max-width: 211px;
+  transition: all 0.5s;
+  cursor: pointer;
+
+  border-radius: 15px;
+  padding: 10px 30px;
+  
+  margin: 100px auto;
+  margin-bottom: 0;
+  letter-spacing: 3;
+  font-family: "Assistant";
+  /* font-family: "Montserrat", Arial; */
+  font-weight: 900;
+  word-spacing: 4;
+  font-size: 17px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+@media (max-width: 1280px) {
+  /* md */
+}
+
+@media (max-width: 960px) {
+  .button {
+    margin: 25px auto;
+  }
+}
+
+@media (max-width: 600px) {
+  /* xs */
+}
