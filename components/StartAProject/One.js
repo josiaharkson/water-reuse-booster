@@ -76,26 +76,10 @@ const BootstrapInput = withStyles(theme => ({
 
 export default function Indx({ setStep }) {
   const classes = useStyles();
-  const [age, setAge] = React.useState("");
-  const [age2, setAge2] = React.useState("");
-  const [age3, setAge3] = React.useState("");
-  const [age4, setAge4] = React.useState("");
-
-  const handleChange = event => {
-    setAge(event.target.value);
-  };
-
-  const handleChange2 = event => {
-    setAge2(event.target.value);
-  };
-
-  const handleChange3 = event => {
-    setAge3(event.target.value);
-  };
-
-  const handleChange4 = event => {
-    setAge4(event.target.value);
-  };
+  const [country, setCountry] = React.useState("Select");
+  const [state, setState] = React.useState("Select");
+  const [city, setCity] = React.useState("Select");
+  const [company, setCompany] = React.useState("Select");
 
   return (
     <>
@@ -145,18 +129,18 @@ export default function Indx({ setStep }) {
                   <Select
                     labelId="demo-customized-select-label"
                     id="demo-customized-select"
-                    value={age}
-                    onChange={handleChange}
+                    value={country}
+                    onChange={e => setCountry(e.target.value)}
                     input={<BootstrapInput />}
                   >
-                    <MenuItem value="">
-                      <em>None</em>
+                    <MenuItem value="Select">
+                      <em>Select</em>
                     </MenuItem>
-                    <MenuItem value={10}>France</MenuItem>
-                    <MenuItem value={20}>Spain</MenuItem>
-                    <MenuItem value={30}>Italy</MenuItem>
-                    <MenuItem value={40}>Portugal</MenuItem>
-                    <MenuItem value={50}>Netherlands</MenuItem>
+                    <MenuItem value={"Spain"}>Spain</MenuItem>
+                    <MenuItem value={"France"}>France</MenuItem>
+                    <MenuItem value={"Italy"}>Italy</MenuItem>
+                    <MenuItem value={"Portugal"}>Portugal</MenuItem>
+                    <MenuItem value={"Netherlands"}>Netherlands</MenuItem>
                   </Select>
                 </FormControl>
               </div>
@@ -172,18 +156,18 @@ export default function Indx({ setStep }) {
                   <Select
                     labelId="demo-customized-select-label"
                     id="demo-customized-select"
-                    value={age2}
-                    onChange={handleChange2}
+                    value={state}
+                    onChange={e => setState(e.target.value)}
                     input={<BootstrapInput />}
                   >
-                    <MenuItem value="">
-                      <em>None</em>
+                    <MenuItem value="Select">
+                      <em>Select</em>
                     </MenuItem>
-                    <MenuItem value={10}>Valencia</MenuItem>
-                    <MenuItem value={20}>Madrid</MenuItem>
-                    <MenuItem value={30}>Alicante</MenuItem>
-                    <MenuItem value={30}>Barcelona</MenuItem>
-                    <MenuItem value={30}>Murcia</MenuItem>
+                    <MenuItem value={"Barcelona"}>Barcelona</MenuItem>
+                    <MenuItem value={"Valencia"}>Valencia</MenuItem>
+                    <MenuItem value={"Madrid"}>Madrid</MenuItem>
+                    <MenuItem value={"Alicante"}>Alicante</MenuItem>
+                    <MenuItem value={"Murcia"}>Murcia</MenuItem>
                   </Select>
                 </FormControl>
               </div>
@@ -199,18 +183,17 @@ export default function Indx({ setStep }) {
                   <Select
                     labelId="demo-customized-select-label"
                     id="demo-customized-select"
-                    value={age3}
-                    onChange={handleChange3}
+                    value={city}
+                    onChange={e => setCity(e.target.value)}
                     input={<BootstrapInput />}
                   >
-                    <MenuItem value="">
-                      <em>None</em>
+                    <MenuItem value="Select">
+                      <em>Select</em>
                     </MenuItem>
-                    <MenuItem value={30}>Barcelona</MenuItem>
-                    <MenuItem value={10}>Tarragona</MenuItem>
-                    <MenuItem value={10}>Terrassa</MenuItem>
-                    <MenuItem value={10}>Vilanova</MenuItem>
-                    <MenuItem value={20}>Reuc</MenuItem>
+                    <MenuItem value={"Tarragona"}>Tarragona</MenuItem>
+                    <MenuItem value={"Terrassa"}>Terrassa</MenuItem>
+                    <MenuItem value={"Vilanova"}>Vilanova</MenuItem>
+                    <MenuItem value={"Reuc"}>Reuc</MenuItem>
                   </Select>
                 </FormControl>
               </div>
@@ -226,63 +209,29 @@ export default function Indx({ setStep }) {
                   <Select
                     labelId="demo-customized-select-label"
                     id="demo-customized-select"
-                    value={age4}
-                    onChange={handleChange4}
+                    value={company}
+                    onChange={e => setCompany(e.target.value)}
                     input={<BootstrapInput />}
                   >
-                    <MenuItem value="">
-                      <em>None</em>
+                    <MenuItem value="Select">
+                      <em>Select</em>
                     </MenuItem>
-                    <MenuItem value={10}>Vila Seca UWWTP</MenuItem>
-                    <MenuItem value={20}>Salou UWWTP</MenuItem>
-                    <MenuItem value={30}>Tarragona UWWTP</MenuItem>
-                    <MenuItem value={30}>Reus UWWTP</MenuItem>
+                    <MenuItem value={"Comunitat de Regants de Riudecanyes"}>
+                      Comunitat de Regants de Riudecanyes
+                    </MenuItem>
+                    <MenuItem value={"Comunitat de Regants del Molinet"}>
+                      Comunitat de Regants del Molinet
+                    </MenuItem>
+                    <MenuItem value={"Comunitat de regants de Foix"}>
+                      Comunitat de regants de Foix
+                    </MenuItem>
+                    <MenuItem value={"Comunitat de Regants del Baix Priorat"}>
+                      Comunitat de Regants del Baix Priorat
+                    </MenuItem>
                   </Select>
                 </FormControl>
               </div>
             </div>
-
-            {/* <div className="row">
-              <div className="title">
-                <span>Province</span>
-              </div>
-              <div className="custom-select">
-                <select>
-                  <option value="1">Audi</option>
-                  <option value="2">BMW</option>
-                  <option value="3">Citroen</option>
-                  <option value="4">Ford</option>
-                </select>
-              </div>
-            </div>
-
-            <div className="row">
-              <div className="title">
-                <span>City</span>
-              </div>
-              <div className="custom-select">
-                <select>
-                  <option value="1">Audi</option>
-                  <option value="2">BMW</option>
-                  <option value="3">Citroen</option>
-                  <option value="4">Ford</option>
-                </select>
-              </div>
-            </div> */}
-
-            {/* <div className="row">
-              <div className="title">
-                <span>Company</span>
-              </div>
-              <div className="custom-select">
-                <select>
-                  <option value="1">Audi</option>
-                  <option value="2">BMW</option>
-                  <option value="3">Citroen</option>
-                  <option value="4">Ford</option>
-                </select>
-              </div>
-            </div> */}
 
             <a className={Styles.button} onClick={() => setStep(2)}>
               Generate potential cluster{" "}

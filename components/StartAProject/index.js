@@ -2,6 +2,7 @@ import React from "react";
 import NavBar from "../global/NavBar";
 
 import { makeStyles, withStyles } from "@material-ui/core/styles";
+import Slide from "@material-ui/core/Slide";
 
 import InputBase from "@material-ui/core/InputBase";
 
@@ -82,11 +83,56 @@ export default function Indx() {
     <>
       <NavBar direction="down" title="Agriculture" />
       <Progress step={step} setStep={setStep} />
-      {step === 1 && <One setStep={setStep} />}
-      {step === 2 && <Two setStep={setStep} />}
-      {step === 3 && <Three setStep={setStep} />}
-      {step === 4 && <Four setStep={setStep} />}
-      {step === 5 && <Five setStep={setStep} />}
+
+      <Slide
+        direction="right"
+        in={step === 1}
+        mountOnEnter
+        unmountOnExit
+        timeout={1000}
+      >
+        <div>{step === 1 && <One setStep={setStep} />}</div>
+      </Slide>
+
+      <Slide
+        direction="right"
+        in={step === 2}
+        mountOnEnter
+        unmountOnExit
+        timeout={1000}
+      >
+        <div>{step === 2 && <Two setStep={setStep} />}</div>
+      </Slide>
+
+      <Slide
+        direction="right"
+        in={step === 3}
+        mountOnEnter
+        unmountOnExit
+        timeout={1000}
+      >
+        <div>{step === 3 && <Three setStep={setStep} />}</div>
+      </Slide>
+
+      <Slide
+        direction="right"
+        in={step === 4}
+        mountOnEnter
+        unmountOnExit
+        timeout={1000}
+      >
+        <div>{step === 4 && <Four setStep={setStep} />}</div>
+      </Slide>
+
+      <Slide
+        direction="right"
+        in={step === 5}
+        mountOnEnter
+        unmountOnExit
+        timeout={1000}
+      >
+        <div>{step === 5 && <Five setStep={setStep} />}</div>
+      </Slide>
 
       <style jsx global>{`
         * {

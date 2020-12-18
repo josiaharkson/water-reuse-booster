@@ -125,7 +125,7 @@ export default function Indx() {
         in={true}
         mountOnEnter
         unmountOnExit
-        timeout={4000}
+        timeout={2000}
       >
         <section id="section-two">
           <SectionB />
