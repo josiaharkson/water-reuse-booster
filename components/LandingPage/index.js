@@ -1,18 +1,47 @@
 import React from "react";
 import Link from "next/link";
 import Styles from "./home.header.module.css";
+import Slide from "@material-ui/core/Slide";
 
 export default function Indx() {
   return (
     <div id="root">
       <section id="section-one">
-        <div className="text-one">WATER REUSE BOOSTER</div>
-        <div className="text-two">Making reuse affordable for everyone</div>
-        <Link href="/home">
-          <a className={Styles.button} style={{ background: "#3f9d2f" }}>
-            <span>Start Now </span>
-          </a>
-        </Link>
+        <Slide
+          direction="right"
+          in={true}
+          mountOnEnter
+          unmountOnExit
+          timeout={1000}
+        >
+          <div className="text-one">WATER REUSE BOOSTER</div>
+        </Slide>
+
+        <Slide
+          direction="right"
+          in={true}
+          mountOnEnter
+          unmountOnExit
+          timeout={1700}
+        >
+          <div className="text-two">Making reuse affordable for everyone</div>
+        </Slide>
+
+        <Slide
+          direction="right"
+          in={true}
+          mountOnEnter
+          unmountOnExit
+          timeout={2300}
+        >
+          <div className="buttonwrapper">
+            <Link href="/home">
+              <a className={Styles.button} style={{ background: "#3f9d2f" }}>
+                <span>Start Now </span>
+              </a>
+            </Link>
+          </div>
+        </Slide>
       </section>
       <section id="section-two" />
       <style jsx global>{`
@@ -75,6 +104,9 @@ export default function Indx() {
           font-weight: 700;
           width: 100%;
           font-size: 20px;
+        }
+        .buttonwrapper {
+          margin-top: 100px;
         }
       `}</style>
     </div>

@@ -6,7 +6,7 @@ const Head = props => (
   <NextHead>
     <meta charSet="UTF-8" />
     <title>{props.title || ""}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
     <meta name="description" content={props.description || ""} />
     <meta name="keywords" content={props.keywords || ""} />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -24,6 +24,7 @@ const Head = props => (
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="theme-color" content={theme.palette.primary.main} />
+    <meta name="viewport" content="width=1024" />
   </NextHead>
 );
 

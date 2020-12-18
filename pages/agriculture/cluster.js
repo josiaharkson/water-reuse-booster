@@ -1,18 +1,18 @@
 import React from "react";
 import dynamic from "next/dynamic";
 
-import Head from "../components/global/Head";
-import { FullBackdrop } from "../components/global/BackDrop";
+import Head from "../../components/global/Head";
+import { FullBackdrop } from "../../components/global/BackDrop";
 
-const Home = dynamic(() => import("../components/Home"), {
+const Cluster = dynamic(() => import("../../components/Cluster"), {
   loading: () => <FullBackdrop />,
 });
 
 export default function Indx() {
   return (
     <div>
-      <Head title="Water Reuse | Home" />
-      <Home />
+      <Head title="Water Reuse | Cluster" />
+      <Cluster />
 
       <style jsx global>{`
         * {

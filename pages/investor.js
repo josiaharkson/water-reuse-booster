@@ -11,7 +11,7 @@ const Investor = dynamic(() => import("../components/Investor"), {
 export default function Indx() {
   return (
     <div>
-      <Head title="Investor" />
+      <Head title="Water Reuse | Investor" />
       <Investor />
 
       <style jsx global>{`

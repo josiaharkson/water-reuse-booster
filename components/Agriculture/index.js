@@ -285,7 +285,7 @@ export default function Indx() {
               </div>
             </div> */}
 
-            <Link href="#">
+            <Link href="/agriculture/cluster">
               <a className={Styles.button} style={{ background: "#3f9d2f" }}>
                 Generate potential
                 <br /> cluster{" "}

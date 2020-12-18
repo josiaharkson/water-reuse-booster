@@ -7,6 +7,7 @@ const images = [
   "/img/agric.jpg",
   "/img/industry.jpg",
 ];
+
 export default function App() {
   return (
     <div id="root">
@@ -18,17 +19,18 @@ export default function App() {
         <div className="card">
           <Link href="/investor">
             <a>
-              I'm <br /> Investor
+              I <br />
+              Want to Invest?
             </a>
           </Link>
 
           <img src={images[0]} />
         </div>
         <div className="card">
-          <Link href="">
+          <Link href="/agriculture">
             <a>
-              I'm from
-              <br /> Urban Wastewaer Plant
+              I <br />
+              Can Provide Water?
             </a>
           </Link>
 
@@ -39,20 +41,11 @@ export default function App() {
         <div className="card">
           <Link href="/agriculture">
             <a>
-              I'm from
-              <br /> Agricultural Sector
+              Need Water? <br />
+              Agriculture & Industry plants
             </a>
           </Link>
           <img src={images[2]} />
-        </div>
-        <div className="card">
-          <Link href="">
-            <a>
-              I'm from
-              <br /> Industry
-            </a>
-          </Link>
-          <img src={images[3]} />
         </div>
       </div>
 

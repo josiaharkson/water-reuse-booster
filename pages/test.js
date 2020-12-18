@@ -1,163 +1,238 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { useSpring, animated } from "react-spring";
+import AppBar from "@material-ui/core/AppBar";
+import Button from "@material-ui/core/Button";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardHeader from "@material-ui/core/CardHeader";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Grid from "@material-ui/core/Grid";
+import StarIcon from "@material-ui/icons/StarBorder";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import Link from "@material-ui/core/Link";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+import Box from "@material-ui/core/Box";
 
-const calc = (x, y) => [
-  -(y - window.innerHeight / 2) / 20,
-  (x - window.innerWidth / 2) / 20,
-  1.1,
-];
-const trans = (x, y, s) =>
-  `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
-
-function Card() {
-  const [props, set] = useSpring(() => ({
-    xys: [0, 0, 1],
-    config: { mass: 5, tension: 350, friction: 40 },
-  }));
+function Copyright() {
   return (
-    <>
-      <animated.div
-        class="card"
-        onMouseMove={({ clientX: x, clientY: y }) => set({ xys: [2, 2, 1] })}
-        onMouseLeave={() => set({ xys: [0, 0, 1] })}
-        style={{ transform: props.xys.interpolate(trans) }}
-      />
-
-      <div className="article-container">
-        <div className="article-img-holder"></div>
-        <a className="article-title-link" href="#">
-          Music that will wake you up on your way to work
-        </a>
-      </div>
-
-      <div className="wrapper">
-        <div className="parent" onclick="">
-          <div className="child bg-one">
-            <a href="#">Los Angeles</a>
-          </div>
-        </div>
-
-        <div className="parent right" onclick="">
-          <div className="child bg-two">
-            <a href="#">London</a>
-          </div>
-        </div>
-
-        <div className="parent" onclick="">
-          <div className="child bg-three">
-            <a href="#">New York</a>
-          </div>
-        </div>
-
-        <div className="parent right" onclick="">
-          <div className="child bg-four">
-            <a href="#">Hollywood</a>
-          </div>
-        </div>
-
-        <div className="parent" onclick="">
-          <div className="child bg-five">
-            <a href="#">Dubai</a>
-          </div>
-        </div>
-
-        <div className="parent right" onclick="">
-          <div className="child bg-six">
-            <a href="#">San Francisco</a>
-          </div>
-        </div>
-      </div>
-
-      <style jsx global>{`
-        html,
-        body,
-        #root {
-          width: 100%;
-          height: 100%;
-          margin: 0;
-          padding: 0;
-          background-color: white;
-        }
-
-        body {
-          font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir,
-            helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial,
-            sans-serif;
-          background: transparent;
-          -webkit-touch-callout: none;
-          -webkit-user-select: none;
-          -khtml-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-          user-select: none;
-          cursor: default;
-        }
-
-        #root {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          overflow: hidden;
-          background: #f0f0f0;
-        }
-
-        .card {
-          width: 45ch;
-          height: 45ch;
-          background: grey;
-          border-radius: 5px;
-          background-image: url(https://drscdn.500px.org/photo/435236/q%3D80_m%3D1500/v2?webp=true&sig=67031bdff6f582f3e027311e2074be452203ab637c0bd21d89128844becf8e40);
-          background-size: cover;
-          background-position: center center;
-          box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
-          transition: box-shadow 0.5s;
-          will-change: transform;
-          border: 15px solid white;
-        }
-
-        .card:hover {
-          box-shadow: 0px 30px 100px -10px rgba(0, 0, 0, 0.4);
-        }
-
-        .article-container {
-          width: 300px;
-          height: 200px;
-          border: 1px solid #000000;
-          overflow: hidden;
-          position: relative;
-        }
-
-        .article-img-holder {
-          width: 100%;
-          height: 100%;
-          background: url(https://awik.io/demo/background-image-zoom/traffic2.jpg);
-          background-position: center;
-          background-size: cover;
-          background-repeat: no-repeat;
-          transition: all 1s;
-        }
-
-        .article-img-holder:hover {
-          transform: scale(1.2);
-        }
-
-        .article-title-link {
-          color: #ffffff;
-          text-shadow: 1px 1px 1px #000000;
-          font-size: 20px;
-          font-weight: bold;
-          position: absolute;
-          bottom: 0;
-          padding: 10px;
-          text-decoration: none;
-        }
-        .article-title-link:hover {
-          text-decoration: underline;
-        }
-      `}</style>
-    </>
+    <Typography variant="body2" color="textSecondary" align="center">
+      {"Copyright © "}
+      <Link color="inherit" href="https://material-ui.com/">
+        Your Website
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
   );
 }
 
-export default Card;
+const useStyles = makeStyles(theme => ({
+  "@global": {
+    ul: {
+      margin: 0,
+      padding: 0,
+      listStyle: "none",
+    },
+  },
+  appBar: {
+    borderBottom: `1px solid ${theme.palette.divider}`,
+  },
+  toolbar: {
+    flexWrap: "wrap",
+  },
+  toolbarTitle: {
+    flexGrow: 1,
+  },
+  link: {
+    margin: theme.spacing(1, 1.5),
+  },
+  heroContent: {
+    padding: theme.spacing(8, 0, 6),
+  },
+  cardHeader: {
+    backgroundColor:
+      theme.palette.type === "light"
+        ? theme.palette.grey[200]
+        : theme.palette.grey[700],
+  },
+  cardPricing: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "baseline",
+    marginBottom: theme.spacing(2),
+  },
+  footer: {
+    borderTop: `1px solid ${theme.palette.divider}`,
+    marginTop: theme.spacing(8),
+    paddingTop: theme.spacing(3),
+    paddingBottom: theme.spacing(3),
+    [theme.breakpoints.up("sm")]: {
+      paddingTop: theme.spacing(6),
+      paddingBottom: theme.spacing(6),
+    },
+  },
+}));
+
+const tiers = [
+  {
+    title: "Free",
+    price: "0",
+    description: [
+      "10 users included",
+      "2 GB of storage",
+      "Help center access",
+      "Email support",
+    ],
+    buttonText: "Sign up for free",
+    buttonVariant: "outlined",
+  },
+  {
+    title: "Pro",
+    subheader: "Most popular",
+    price: "15",
+    description: [
+      "20 users included",
+      "10 GB of storage",
+      "Help center access",
+      "Priority email support",
+    ],
+    buttonText: "Get started",
+    buttonVariant: "contained",
+  },
+  {
+    title: "Enterprise",
+    price: "30",
+    description: [
+      "50 users included",
+      "30 GB of storage",
+      "Help center access",
+      "Phone & email support",
+    ],
+    buttonText: "Contact us",
+    buttonVariant: "outlined",
+  },
+];
+const footers = [
+  {
+    title: "Company",
+    description: ["Team", "History", "Contact us", "Locations"],
+  },
+  {
+    title: "Features",
+    description: [
+      "Cool stuff",
+      "Random feature",
+      "Team feature",
+      "Developer stuff",
+      "Another one",
+    ],
+  },
+  {
+    title: "Resources",
+    description: [
+      "Resource",
+      "Resource name",
+      "Another resource",
+      "Final resource",
+    ],
+  },
+  {
+    title: "Legal",
+    description: ["Privacy policy", "Terms of use"],
+  },
+];
+
+export default function Pricing() {
+  const classes = useStyles();
+
+  return (
+    <React.Fragment>
+      <CssBaseline />
+
+      {/* End hero unit */}
+      <Container maxWidth="md" component="main">
+        <Grid container spacing={5} alignItems="flex-end">
+          {tiers.map(tier => (
+            // Enterprise card is full width at sm breakpoint
+            <Grid
+              item
+              key={tier.title}
+              xs={12}
+              sm={tier.title === "Enterprise" ? 12 : 6}
+              md={4}
+            >
+              <Card>
+                <CardHeader
+                  title={tier.title}
+                  subheader={tier.subheader}
+                  titleTypographyProps={{ align: "center" }}
+                  subheaderTypographyProps={{ align: "center" }}
+                  action={tier.title === "Pro" ? <StarIcon /> : null}
+                  className={classes.cardHeader}
+                />
+                <CardContent>
+                  <div className={classes.cardPricing}>
+                    <Typography component="h2" variant="h3" color="textPrimary">
+                      ${tier.price}
+                    </Typography>
+                    <Typography variant="h6" color="textSecondary">
+                      /mo
+                    </Typography>
+                  </div>
+                  <ul>
+                    {tier.description.map(line => (
+                      <Typography
+                        component="li"
+                        variant="subtitle1"
+                        align="center"
+                        key={line}
+                      >
+                        {line}
+                      </Typography>
+                    ))}
+                  </ul>
+                </CardContent>
+                <CardActions>
+                  <Button
+                    fullWidth
+                    variant={tier.buttonVariant}
+                    color="primary"
+                  >
+                    {tier.buttonText}
+                  </Button>
+                </CardActions>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+      {/* Footer */}
+      <Container maxWidth="md" component="footer" className={classes.footer}>
+        <Grid container spacing={4} justify="space-evenly">
+          {footers.map(footer => (
+            <Grid item xs={6} sm={3} key={footer.title}>
+              <Typography variant="h6" color="textPrimary" gutterBottom>
+                {footer.title}
+              </Typography>
+              <ul>
+                {footer.description.map(item => (
+                  <li key={item}>
+                    <Link href="#" variant="subtitle1" color="textSecondary">
+                      {item}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </Grid>
+          ))}
+        </Grid>
+        <Box mt={5}>
+          <Copyright />
+        </Box>
+      </Container>
+      {/* End footer */}
+    </React.Fragment>
+  );
+}

@@ -4,15 +4,15 @@ import dynamic from "next/dynamic";
 import Head from "../components/global/Head";
 import { FullBackdrop } from "../components/global/BackDrop";
 
-const Home = dynamic(() => import("../components/Home"), {
+const Marketplace = dynamic(() => import("../components/Marketplace"), {
   loading: () => <FullBackdrop />,
 });
 
 export default function Indx() {
   return (
     <div>
-      <Head title="Water Reuse | Home" />
-      <Home />
+      <Head title="Water Reuse | Marketplace" />
+      <Marketplace />
 
       <style jsx global>{`
         * {
