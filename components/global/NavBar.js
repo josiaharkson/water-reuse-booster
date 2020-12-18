@@ -6,7 +6,7 @@ import Slide from "@material-ui/core/Slide";
 import Styles from "./css/navbar.module.css";
 import HomeIcon from "@material-ui/icons/Home";
 
-const NavBar = ({ direction, timeout }) => {
+const NavBar = ({ direction, timeout, title }) => {
   return (
     <Slide
       direction={direction ? direction : "right"}
@@ -16,11 +16,15 @@ const NavBar = ({ direction, timeout }) => {
       timeout={timeout ? timeout : 1000}
     >
       <div className={Styles.root} style={{ userSelect: "none" }}>
-        <a className={Styles.item}>Success Stories</a>
+        <Link href="/home">
+          <a className={Styles.item}>Home</a>
+        </Link>{" "}
         <a className={Styles.item}>About water reuse</a>
-        <a className={clxs(Styles.item, Styles.active)}>Home</a>
+        <a className={clxs(Styles.item, Styles.active)}>
+          {title ? title : "Home"}
+        </a>
         <a className={Styles.item}>About us</a>
-        <a className={Styles.item}>Contact us</a>
+        <a className={Styles.item}>Success Stories</a>
       </div>
     </Slide>
   );

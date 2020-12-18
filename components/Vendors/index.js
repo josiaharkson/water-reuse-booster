@@ -5,7 +5,7 @@ import NavBar from "../global/NavBar";
 export default function Indx() {
   return (
     <>
-      <NavBar direction="down" />
+      <NavBar direction="down" title="Vendors" />
       <div id="root">
         <section id="section-one">
           <h2>Engineering Companies / OEMs</h2>

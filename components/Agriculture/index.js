@@ -99,7 +99,7 @@ export default function Indx() {
 
   return (
     <>
-      <NavBar direction="down" />
+      <NavBar direction="down" title="Agriculture" />
       <div id="root">
         <section id="section-one">
           <div className="text-one">WATER REUSE BOOSTER</div>
