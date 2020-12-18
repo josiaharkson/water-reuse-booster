@@ -7,58 +7,130 @@ import RedditIcon from "@material-ui/icons/Reddit";
 
 import Styles from "./index.module.css";
 import SectionB from "./section_b";
+import Slide from "@material-ui/core/Slide";
 
 export default function Indx() {
   return (
     <div id="root">
       <section id="section-one">
         <div>
-          <div className="list">Home</div>
-          <div className="list">News / Events</div>
-          <div className="list">About Water Reuse</div>
-          <div className="list">EU Regulations</div>
-          <div className="list">Projects Database</div>
-          <div className="list">Our Success Stories</div>
-          <div className="list_sub_wrapper">
-            <div className="list_sub">About us</div>
-            <div className="list_sub">Members area</div>
-            <div className="list_sub">Become a member</div>
-          </div>
-
-          <footer>
-            <div className="footer_a">
-              <div className="footer_title">Contact us</div>
-              <div className="footer_sub footer_spacer">
-                Water Reuse Booster LLC
-              </div>
-              <div className="footer_sub">Barcelona Spain</div>
-              <div className="footer_sub email footer_spacer">
-                halo@waterreusebooster.com
-              </div>
-              <div className="footer_sub">+34 910 00000000</div>
+          <Slide
+            direction="right"
+            in={true}
+            mountOnEnter
+            unmountOnExit
+            timeout={1000}
+          >
+            <div className="list">Home</div>
+          </Slide>{" "}
+          <Slide
+            direction="right"
+            in={true}
+            mountOnEnter
+            unmountOnExit
+            timeout={1000}
+          >
+            <div className="list">News / Events</div>
+          </Slide>
+          <Slide
+            direction="right"
+            in={true}
+            mountOnEnter
+            unmountOnExit
+            timeout={1500}
+          >
+            <div className="list">About Water Reuse</div>
+          </Slide>{" "}
+          <Slide
+            direction="right"
+            in={true}
+            mountOnEnter
+            unmountOnExit
+            timeout={1500}
+          >
+            <div className="list">EU Regulations</div>
+          </Slide>
+          <Slide
+            direction="right"
+            in={true}
+            mountOnEnter
+            unmountOnExit
+            timeout={2000}
+          >
+            <div className="list">Projects Database</div>
+          </Slide>
+          <Slide
+            direction="right"
+            in={true}
+            mountOnEnter
+            unmountOnExit
+            timeout={2500}
+          >
+            <div className="list">Our Success Stories</div>
+          </Slide>
+          <Slide
+            direction="right"
+            in={true}
+            mountOnEnter
+            unmountOnExit
+            timeout={1000}
+          >
+            <div className="list_sub_wrapper">
+              <div className="list_sub">About us</div>
+              <div className="list_sub">Members area</div>
+              <div className="list_sub">Become a member</div>
             </div>
-            <div className="footer_b">
-              <div className="footer_title">Follow us</div>
-              <div className="social_icons">
-                <GTranslateIcon />
-                <FacebookIcon />
-                <TwitterIcon />
-                <InstagramIcon />
-                <RedditIcon />
+          </Slide>
+          <Slide
+            direction="up"
+            in={true}
+            mountOnEnter
+            unmountOnExit
+            timeout={1000}
+          >
+            <footer>
+              <div className="footer_a">
+                <div className="footer_title">Contact us</div>
+                <div className="footer_sub footer_spacer">
+                  Water Reuse Booster LLC
+                </div>
+                <div className="footer_sub">Barcelona Spain</div>
+                <div className="footer_sub email footer_spacer">
+                  halo@waterreusebooster.com
+                </div>
+                <div className="footer_sub">+34 910 00000000</div>
               </div>
-              <div className="footer_title footer_spacer">Newsletter</div>
-              <div className="signup_wrapper">
-                <div>Sign up</div>
-                <input type="email" placeholder="example@mail.com" />
+              <div className="footer_b">
+                <div className="footer_title">Follow us</div>
+                <div className="social_icons">
+                  <GTranslateIcon />
+                  <FacebookIcon />
+                  <TwitterIcon />
+                  <InstagramIcon />
+                  <RedditIcon />
+                </div>
+                <div className="footer_title footer_spacer">Newsletter</div>
+                <div className="signup_wrapper">
+                  <div>Sign up</div>
+                  <input type="email" placeholder="example@mail.com" />
+                </div>
               </div>
-            </div>
-          </footer>
+            </footer>
+          </Slide>{" "}
         </div>
       </section>
 
-      <section id="section-two">
-        <SectionB />
-      </section>
+      <Slide
+        direction="left"
+        in={true}
+        mountOnEnter
+        unmountOnExit
+        timeout={4000}
+      >
+        <section id="section-two">
+          <SectionB />
+        </section>
+      </Slide>
       <style jsx global>{`
         * {
           margin: 0;

@@ -11,7 +11,7 @@ const Agriculture = dynamic(() => import("../components/Agriculture"), {
 export default function Indx() {
   return (
     <div>
-      <Head title="Agriculture" />
+      <Head title="Water Reuse | Agriculture" />
       <Agriculture />
 
       <style jsx global>{`
