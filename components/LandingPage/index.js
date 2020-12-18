@@ -24,7 +24,9 @@ export default function Indx() {
           unmountOnExit
           timeout={1700}
         >
-          <div className="text-two">Making reuse affordable for everyone</div>
+          <div className="text-two">
+            Making reclaimed water affordable for everyone
+          </div>
         </Slide>
 
         <Slide

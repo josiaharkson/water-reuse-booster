@@ -11,21 +11,34 @@ export default function Indx() {
           <h5>Blockchain enabled marketplace</h5>
 
           <p>
-            Water Reuse Boster cloud marketplace is a decentralized water
-            funding platform that employs cloud, API, AI, blockchain to automate
-            investment processes in water treatment sector.
+            The Water Reuse Boster cloud marketplace is a decentralized water
+            funding platform that employs cloud, API, AI, and blockchain to
+            automate investment processes in the water treatment sector.
           </p>
 
-          <p>Benefits to water infrastructure investors and donors include:</p>
+          <p>Benefits for investors include:</p>
 
           <ul>
-            <li>Lower transaction costs & faster cycle time</li>
+            <li>Lower transaction costs & faster processing times</li>
             <li>
-              New finance models (e.g. Co-Investing, Blended, Performance bonds)
+              New finance models (e.g. Co-Investing, Crowdfunding, Blended,
+              Performance bonds)
             </li>
-            <li>Better and more accurate decision making</li>
-            <li>Impact ROI Accounting (for enviromental and social benefits</li>
-            <li>Investment portfolio management</li>
+            <li>
+              High transparency and data rich evaluations for more accurate
+              decision making
+            </li>
+
+            <li>
+              Opportunity to invest for impact (creating enviromental and social
+              benefits)
+            </li>
+            <li>
+              Closer and more transparent collaboration between stakeholders
+            </li>
+            <li>
+              Low risk investment thanks to standardisation of the process
+            </li>
           </ul>
 
           <h5>Why Blockchain?</h5>
@@ -94,8 +107,8 @@ export default function Indx() {
           }
 
           h1 {
-            font-size: 34px;
-            padding-bottom: 20px;
+            font-size: 30px;
+            padding-bottom: 15px;
           }
 
           p,
@@ -103,8 +116,8 @@ export default function Indx() {
             list-style: none;
             font-weight: 900;
             font-family: "Assistant";
-            font-size: 17px;
-            padding-bottom: 20px;
+            font-size: 15px;
+            padding-bottom: 15px;
           }
 
           li:before {
@@ -112,11 +125,11 @@ export default function Indx() {
 
             display: inline-block;
             margin-left: -1.3em; /* same as padding-left set on li */
-            width: 1.3em; /* same as padding-left set on li */
+            width: 1.2em; /* same as padding-left set on li */
           }
           h5 {
-            font-size: 20px;
-            padding-bottom: 20px;
+            font-size: 18px;
+            padding-bottom: 15px;
           }
         `}</style>
       </div>

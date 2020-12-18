@@ -74,7 +74,7 @@ const BootstrapInput = withStyles(theme => ({
   },
 }))(InputBase);
 
-export default function Indx() {
+export default function Indx({ setStep }) {
   const classes = useStyles();
   const [age, setAge] = React.useState("");
   const [age2, setAge2] = React.useState("");
@@ -99,13 +99,12 @@ export default function Indx() {
 
   return (
     <>
-      <NavBar direction="down" title="Agriculture" />
       <div id="root">
         <section id="section-one">
           <div className="text-one">WATER REUSE BOOSTER</div>
           <p>
             Water Reuse Booster will help you to find potential partners for
-            your wastewater reuse project based on following criteria:
+            your wastewater reuse project based on the following criteria:
           </p>
 
           <ul>
@@ -285,12 +284,9 @@ export default function Indx() {
               </div>
             </div> */}
 
-            <Link href="/agriculture/cluster">
-              <a className={Styles.button} style={{ background: "#3f9d2f" }}>
-                Generate potential
-                <br /> cluster{" "}
-              </a>
-            </Link>
+            <a className={Styles.button} onClick={() => setStep(2)}>
+              Generate potential cluster{" "}
+            </a>
 
             <a className={Styles.last}>
               You company is not listed? Contact us and we will add it!
