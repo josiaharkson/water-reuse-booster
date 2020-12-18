@@ -101,7 +101,7 @@ export default function Indx() {
 
   return (
     <>
-      <NavBar direction="down" />
+      <NavBar direction="down" title="Cluster" />
       <div id="root">
         <section id="section-one">
           <div style={{ width: "100%", padding: "5px 30px", height: "100%" }}>
@@ -308,7 +308,7 @@ export default function Indx() {
 
           .instruction {
             color: #3f9d2f;
-            border-top: 3px solid #3f9d2f;
+            border-top: 6px solid #3f9d2f;
             font-size: 30px;
             font-weight: bold;
             width: 350px;

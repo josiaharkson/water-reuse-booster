@@ -6,7 +6,7 @@ import SectionB from "./section_b";
 export default function Indx() {
   return (
     <>
-      <NavBar direction="down" />
+      <NavBar direction="down" title="Marketplace" />
       <div id="root">
         <section id="section-one">
           <h1>WATER REUSE BOOSTER</h1>
