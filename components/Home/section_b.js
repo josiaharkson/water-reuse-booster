@@ -16,37 +16,29 @@ export default function App() {
       </div>
 
       <div className="row_one">
-        <div className="card">
-          <Link href="/investor">
-            <a>
-              I <br />
-              Want to Invest?
-            </a>
-          </Link>
+        <Link href="/start-a-project">
+          <div className="card">
+            <a>I Need Water</a>
+            <img src={images[2]} />
+          </div>
+        </Link>
 
-          <img src={images[0]} />
-        </div>
-        <div className="card">
-          <Link href="/agriculture">
-            <a>
-              I <br />
-              Can Provide Water?
-            </a>
-          </Link>
+        <Link href="#">
+          <div className="card">
+            <a>I Can Provide Water</a>
 
-          <img src={images[1]} />
-        </div>
+            <img src={images[1]} />
+          </div>
+        </Link>
       </div>
       <div className="row_two">
-        <div className="card">
-          <Link href="/agriculture">
-            <a>
-              Need Water? <br />
-              Agriculture & Industry plants
-            </a>
-          </Link>
-          <img src={images[2]} />
-        </div>
+        <Link href="#">
+          <div className="card">
+            <a>I Want to Invest</a>
+
+            <img src={images[0]} />
+          </div>
+        </Link>
       </div>
 
       <style jsx>{`
@@ -76,6 +68,7 @@ export default function App() {
           margin: 30px;
           height: 32ch;
           width: 32ch;
+          cursor: pointer;
           box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
           transition: box-shadow 0.5s;
           overflow: hidden;
@@ -96,7 +89,7 @@ export default function App() {
           width: 100%;
           background: #3f9d2fd1;
           text-align: center;
-          padding: 5px 0;
+          padding: 10px 0;
           font-family: "Assistant";
           font-weight: bold;
           font-size: 16px;

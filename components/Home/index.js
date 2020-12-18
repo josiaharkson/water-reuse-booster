@@ -57,7 +57,7 @@ export default function Indx() {
             unmountOnExit
             timeout={2000}
           >
-            <div className="list">Projects Database</div>
+            <div className="list">Project Database</div>
           </Slide>
           <Slide
             direction="right"
