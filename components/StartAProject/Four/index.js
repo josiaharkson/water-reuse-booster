@@ -1,6 +1,12 @@
 import React from "react";
 import Styles from "./index.module.css";
 import Tab from "./Tab";
+import Dialog from "@material-ui/core/Dialog";
+import Button from "@material-ui/core/Button";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
 
 export default function Indx({ setStep }) {
   return (
@@ -9,7 +15,7 @@ export default function Indx({ setStep }) {
         <Tab
           a={
             <section id="section-one">
-              <h2>Engineering Companies / OEMs</h2>
+              <h3>Engineering Companies / OEMs</h3>
               <div
                 style={{
                   border: "1px solid #3f9d2f",
@@ -56,7 +62,7 @@ export default function Indx({ setStep }) {
           }
           b={
             <section id="section-two">
-              <h2>Component manufacturers</h2>
+              <h3>Component manufacturers</h3>
               <div
                 style={{
                   border: "1px solid #3f9d2f",
@@ -102,10 +108,11 @@ export default function Indx({ setStep }) {
         />
       </div>
 
-      <div className="button" onClick={() => setStep(5)}>
-        Send quotes request
-      </div>
-      <a className={Styles.last}>Maybe later - Skip for now!</a>
+      <AlertDialog setStep={setStep} />
+
+      <a className={Styles.last} onClick={() => setStep(5)}>
+        Maybe later - Skip for now!
+      </a>
       <style jsx global>{`
         * {
           margin: 0;
@@ -130,7 +137,7 @@ export default function Indx({ setStep }) {
           flex: 1;
           width: 100%;
           padding: 20px 30px;
-          padding-bottom: 20px;
+          padding-bottom: 0;
         }
 
         #section-one {
@@ -144,10 +151,10 @@ export default function Indx({ setStep }) {
           flex-direction: column;
         }
 
-        h2 {
+        h3 {
           color: #3f9d2f;
-          border-top: 6px solid #3f9d2f;
-          width: 70%;
+          border-top: 4px solid #3f9d2f;
+          width: 100%;
           font-family: "Assistant";
           text-align: left;
           padding-bottom: 10px;
@@ -283,3 +290,63 @@ const companies_b2 = [
     phone: "+343355117705",
   },
 ];
+
+function AlertDialog({ setStep }) {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  return (
+    <div style={{ margin: 30 }}>
+      <div className="button" onClick={() => handleClickOpen()}>
+        Send quotes request
+      </div>
+
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="h1">Quotes requested!</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            <b style={{ fontFamily: "Assistant" }}>
+              {" "}
+              Quote information will be added to your project when received.
+              Please click on 'continue' to finalise building your project.
+            </b>
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button
+            variant="outlined"
+            onClick={() => setStep(5)}
+            color="primary"
+            autoFocus
+          >
+            Continue
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      <style jsx global>{`
+        #h1 {
+          color: #3f9d2f;
+          border-top: 10px solid #3f9d2f;
+          width: 100%;
+          font-family: "Assistant";
+          text-align: left;
+          padding-bottom: 10px;
+          font-weight: 900;
+        }
+      `}</style>
+    </div>
+  );
+}

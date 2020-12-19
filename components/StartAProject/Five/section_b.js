@@ -144,11 +144,14 @@ function AlertDialog() {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">Message</DialogTitle>
+        <DialogTitle id="h1">Project submitted successfully!</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Yout Project has ben submitted. You will be notified via email when
-            project will be posted after documents check.
+            <b style={{ fontFamil: "Assistant" }}>
+              Congratulations on taking the first step. Our team will review
+              your application and you will be notified via email as soon as
+              your project is approved and posed on the marketplace.
+            </b>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -157,6 +160,18 @@ function AlertDialog() {
           </Button>
         </DialogActions>
       </Dialog>
+
+      <style jsx global>{`
+        #h1 {
+          color: #3f9d2f;
+          border-top: 10px solid #3f9d2f;
+          width: 100%;
+          font-family: "Assistant";
+          text-align: left;
+          padding-bottom: 10px;
+          font-weight: 900;
+        }
+      `}</style>
     </div>
   );
 }
