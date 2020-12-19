@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import Head from "../components/global/Head";
 import { FullBackdrop } from "../components/global/BackDrop";
 
-const MarketPlace = dynamic(() => import("../components/MarketPlace"), {
+const MarketPlace = dynamic(() => import("../components/Marketplace"), {
   loading: () => <FullBackdrop />,
 });
 
