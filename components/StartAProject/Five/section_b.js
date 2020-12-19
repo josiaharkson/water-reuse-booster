@@ -46,7 +46,7 @@ export default function App() {
       </div>
 
       <div className="item">
-        <span> o&M agreement </span>
+        <span> O&M agreement </span>
         <IconButton>
           <GetAppIcon />
         </IconButton>
