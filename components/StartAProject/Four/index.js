@@ -325,12 +325,7 @@ function AlertDialog({ setStep }) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button
-            variant="outlined"
-            onClick={() => setStep(5)}
-            color="primary"
-            autoFocus
-          >
+          <Button variant="outlined" onClick={() => setStep(5)} color="primary">
             Continue
           </Button>
         </DialogActions>
