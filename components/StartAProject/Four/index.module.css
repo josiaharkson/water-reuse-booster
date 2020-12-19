@@ -49,6 +49,7 @@
   background: #fff;
   border-radius: 5px;
   cursor: pointer;
+  cursor: pointer;
   padding: 5px;
   font-family: "Assistant";
   text-decoration: underline;
@@ -56,6 +57,7 @@
   display: block;
   width: 70%;
   margin: auto;
+  margin-top: -20px;
 }
 
 @media (max-width: 1280px) {
