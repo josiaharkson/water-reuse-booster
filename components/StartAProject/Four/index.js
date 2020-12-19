@@ -320,7 +320,7 @@ function AlertDialog({ setStep }) {
             <b style={{ fontFamily: "Assistant" }}>
               {" "}
               Quote information will be added to your project when received.
-              Please click on 'continue' to finalise building your project.
+              Please click on 'Continue' to finalise building your project.
             </b>
           </DialogContentText>
         </DialogContent>

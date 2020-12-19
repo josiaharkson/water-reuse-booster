@@ -1,50 +1,89 @@
 import React from "react";
-import Styles from "./index.module.css";
-import SectionB from "./section_b";
+import NavBar from "../global/NavBar";
+import List from "./Lists";
+import AppBar from "./AppBar";
+
+import WRBMarketplaceContract from "./contracts/WRBMarketplace.json";
+import ProjectContract from "./contracts/Project.json";
+import getWeb3 from "./getWeb3";
 
 export default function Indx() {
+  const [state, setState] = React.useState({
+    storageValue: 0,
+    web3: null,
+    accounts: null,
+    contract: null,
+  });
+  const [hasMadeRequest, setHMR] = React.useState(1);
+
+  const _web3_Request = async () => {
+    try {
+      // Get network provider and web3 instance.
+      const web3 = await getWeb3();
+      console.log({ web3 });
+
+      // Use web3 to get the user's accounts.
+      const accounts = await web3.eth.getAccounts();
+      console.log({ accounts });
+
+      // Get the contract instance.
+      const networkId = await web3.eth.net.getId();
+      console.log({ networkId });
+
+      const deployedNetwork = WRBMarketplaceContract.networks[networkId];
+      const instance = new web3.eth.Contract(
+        WRBMarketplaceContract.abi,
+        deployedNetwork && deployedNetwork.address
+      );
+
+      // Set web3, accounts, and contract to the state, and then proceed with an
+      // example of interacting with the contract's methods.
+      setState({ web3, accounts, contract: instance });
+      setHMR(hasMadeRequest + 1);
+    } catch (error) {
+      // Catch any errors for any of the above operations.
+      alert(
+        `Failed to load web3, accounts, or contract. Check console for details.`
+      );
+      console.error(error);
+    }
+  };
+
+  const runExample = async () => {
+    const { accounts, contract } = state;
+
+    /* // Stores a given value, 5 by default.
+    await contract.methods.deployedProjects(0).call();
+    // Get the value from the contract to prove it worked. */
+    await contract.methods.createProject(100).send({ from: state.accounts[0] });
+
+    const response = await contract.methods.deployedProjects(0).call();
+
+    console.log({ response });
+
+    // Update state with the result.
+    setState({ storageValue: response });
+  };
+
+  // React.useEffect(() => {
+  //   if (hasMadeRequest <= 2)
+  //     if (state.web3 || state.accounts) {
+  //       runExample();
+  //     }
+  // });
+
+  // React.useEffect(() => {
+  //   if (!state.web3 && !state.accounts && !state.contract) {
+  //     _web3_Request();
+  //   }
+  // });
   return (
     <>
+      <NavBar direction="down" title="Market Place" />
+      <AppBar />
       <div id="root">
-        <section id="section-one">
-          <h1>WATER REUSE BOOSTER</h1>
-          <h5>Blockchain enabled marketplace</h5>
+        <List />
 
-          <p>
-            Water Reuse Boster cloud marketplace is a decentralized water
-            funding platform that employs cloud, API, AI, blockchain to automate
-            investment processes in water treatment sector.
-          </p>
-
-          <p>Benefits to water infrastructure investors and donors include:</p>
-
-          <ul>
-            <li>Lower transaction costs & faster cycle time</li>
-            <li>
-              New finance models (e.g. Co-Investing, Blended, Performance bonds)
-            </li>
-            <li>Better and more accurate decision making</li>
-            <li>Impact ROI Accounting (for enviromental and social benefits</li>
-            <li>Investment portfolio management</li>
-          </ul>
-
-          <h5>Why Blockchain?</h5>
-          <p>
-            Blockchain is a secure, transparent and distrubuted public ledger
-            that records transactions between parties. The information can't be
-            hidden or changed by the corrupt behaviour of governments,
-            corporations or individuals.
-          </p>
-
-          <p>
-            The real time data on waer quality can be used to amke better
-            decisions in times of increasing water scarcity.
-          </p>
-        </section>
-
-        <section id="section-two">
-          <SectionB />
-        </section>
         <style jsx global>{`
           * {
             margin: 0;
@@ -69,54 +108,6 @@ export default function Indx() {
             flex: 1;
             width: 100%;
             height: 100vh;
-          }
-
-          #section-one {
-            padding: 30px 50px;
-            display: flex;
-            height: 100%;
-            flex-direction: column;
-            flex-basis: 50%;
-          }
-          #section-two {
-            display: flex;
-            flex-basis: 50%;
-            height: 100%;
-          }
-
-          h1,
-          h5 {
-            color: #3f9d2f;
-            width: 100%;
-            font-family: "Assistant";
-            text-align: center;
-            font-weight: 900;
-          }
-
-          h1 {
-            font-size: 34px;
-            padding-bottom: 20px;
-          }
-
-          p,
-          ul {
-            list-style: none;
-            font-weight: 900;
-            font-family: "Assistant";
-            font-size: 17px;
-            padding-bottom: 20px;
-          }
-
-          li:before {
-            content: "*"; /* FontAwesome Unicode */
-
-            display: inline-block;
-            margin-left: -1.3em; /* same as padding-left set on li */
-            width: 1.3em; /* same as padding-left set on li */
-          }
-          h5 {
-            font-size: 20px;
-            padding-bottom: 20px;
           }
         `}</style>
       </div>

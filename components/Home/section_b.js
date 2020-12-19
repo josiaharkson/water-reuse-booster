@@ -32,7 +32,7 @@ export default function App() {
         </Link>
       </div>
       <div className="row_two">
-        <Link href="#">
+        <Link href="/marketplace">
           <div className="card">
             <a>I Want to Invest</a>
 
