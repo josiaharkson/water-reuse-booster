@@ -1,8 +1,10 @@
 import React from "react";
 
+import Button from "@material-ui/core/Button";
 import BorderLinearProgress from "@material-ui/core/LinearProgress";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 
+import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 const LinearProgress = withStyles(theme => ({
   root: {
     height: 10,
@@ -18,7 +20,7 @@ const LinearProgress = withStyles(theme => ({
   },
 }))(BorderLinearProgress);
 
-export default function Indx({ project }) {
+export default function Indx({ project, state, handleChange, invest }) {
   return (
     <>
       <div id="root">
@@ -35,16 +37,50 @@ export default function Indx({ project }) {
                     width: "100%",
                     textAlign: "center",
                     border: "1px solid #e8cfcf",
-                    padding: 10,
+                    padding: "8px 6px",
                     borderRadius: 3,
                   }}
                 >
-                  <b style={{ fontSize: 15 }}> {project.fp}%</b>
+                  <b
+                    style={{
+                      fontSize: 17,
+                      float: "right",
+                      marginTop: -8,
+                      marginLeft: 6,
+                    }}
+                  >
+                    {" "}
+                    {project.fp}%
+                  </b>
                   <LinearProgress
                     variant="determinate"
                     value={parseInt(project.fp)}
                   />
                 </div>
+
+                <div id="input-wrapper">
+                  <div className="icon">
+                    <AttachMoneyIcon style={{ fontSize: 35 }} />
+                  </div>
+                  <input
+                    autoFocus
+                    type="text"
+                    placeholder="0.00"
+                    value={state.amount}
+                    style={{ fontSize: 30 }}
+                    onChange={e => handleChange(e)}
+                  />
+
+                  <div className="empty" />
+                </div>
+
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => invest()}
+                >
+                  INVEST
+                </Button>
               </div>
             </div>
           </div>
@@ -228,7 +264,7 @@ export default function Indx({ project }) {
         }
         .progress ._a {
           font-family: "Assistant";
-          font-size: 18px;
+          font-size: 15px;
           font-weight: bold;
           color: #3f9d2f;
           width: 100%;
@@ -289,6 +325,53 @@ export default function Indx({ project }) {
         }
         ._sl span {
           flex-basis: 80%;
+        }
+
+        #input-wrapper {
+          display: flex;
+          position: relative;
+          width: 100%;
+          padding: 7px;
+          margin: 0;
+          margin-top: 12px;
+          margin-bottom: 12px;
+        }
+
+        #input-wrapper .empty {
+          position: absolute;
+          border-radius: 8px;
+          border: 1px solid #f1e4e4;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          pointer-events: none;
+        }
+
+        #input-wrapper .icon {
+          width: 30px;
+          margin: 0 10px;
+          color: gray;
+        }
+
+        #input-wrapper .password-icon {
+          margin: 0 10px;
+          color: gray;
+          cursor: pointer;
+        }
+
+        #input-wrapper input {
+          width: 100%;
+          border: none;
+          outline: none;
+        }
+
+        #input-wrapper input:focus + .empty {
+          border: 2px solid #37a000;
+        }
+
+        #input-wrapper input:hover + .empty {
+          border: 2px solid #37a000;
         }
       `}</style>
     </>
