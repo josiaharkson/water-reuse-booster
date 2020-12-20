@@ -1,4 +1,4 @@
-# water-reuse-booster
+# Water-Reuse-Booster
 
 Submitted for the 2020 Finastra Hackathon. 
 
