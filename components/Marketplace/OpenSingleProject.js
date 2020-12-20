@@ -20,7 +20,7 @@ import WRBMarketplaceContract from "./contracts/WRBMarketplace.json";
 import ProjectContract from "./contracts/Project.json";
 import getWeb3 from "./getWeb3";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   appBar: {
     position: "relative",
   },
@@ -54,7 +54,7 @@ export default function FullScreenDialog({
   const handleClose = () => {
     setOpen(false);
   };
-  const handleChange = e => {
+  const handleChange = (e) => {
     console.log({ rrr: e.target.value });
     setState({
       ...state,
@@ -83,8 +83,10 @@ export default function FullScreenDialog({
         WRBMarketplaceContract.abi,
         deployedNetwork && deployedNetwork.address
       );
-      instance.options.address = "0x31F49ae38c8a2C97035532BeC9995A6d6508ee31";
 
+      await instance.methods.createProject(150).send({ from: accounts[0] });
+      /* instance.options.address = "0x31F49ae38c8a2C97035532BeC9995A6d6508ee31";
+       */
       // Set web3, accounts, and contract to the state, and then proceed with an
       // example of interacting with the contract's methods.
       setState({ ...state, web3, accounts, contract: instance });
@@ -112,19 +114,26 @@ export default function FullScreenDialog({
 
       /* const deployedNetworkProject = ProjectContract.networks[networkId];
        */
+      const response = await contract.methods.deployedProjects(0).call();
 
-      const projectInstance = new web3.eth.Contract(ProjectContract.abi);
+      const projectInstance = new state.web3.eth.Contract(
+        ProjectContract.abi,
+        response
+      );
+
+      await projectInstance.methods.invest().send({
+        from: accounts[0],
+        value: web3.utils.toWei(`${parseInt(amount) * 0.0015}`, "ether"),
+      });
+
+      /* const projectInstance = new web3.eth.Contract(ProjectContract.abi);
       projectInstance.options.address =
         "0x31F49ae38c8a2C97035532BeC9995A6d6508ee31";
 
       const res = await projectInstance.methods.invest().send({
         from: accounts[0],
         value: web3.utils.toWei(`${parseInt(amount) * 0.0015}`, "ether"),
-      });
-
-      /* // Stores a given value, 5 by default.
-      await contract.methods.deployedProjects(0).call();
-      // Get the value from the contract to prove it worked. */
+      }); */
 
       console.log({ res });
 
